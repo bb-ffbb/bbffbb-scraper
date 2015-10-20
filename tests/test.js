@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
 var assert = require('assert');
-var miners = require('../src/miners');
-var fields = require('../src/constants').licenseFields;
+var miners = require('../').miners;
+var fields = require('../').constants.licenseFields;
 
 miners.mineLicense({
   firstName: 'Tony',
