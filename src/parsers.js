@@ -11,8 +11,8 @@ var REGEX = {
   licenseFields: /<td><div class="(\w+)">(?:<\w+.*?>)*(.*?)(?:<\/\w+>)+?<\/td>/g
 };
 var FIELD_NAME_MAPPING = {
-  nrlicence: 'licenseId',
-  numNational: 'nationalId',
+  nrlicence: 'nationalId',
+  numNational: 'licenseId',
   nom: 'lastName',
   prenom: 'firstName',
   sexe: 'gender',
