@@ -42,7 +42,7 @@ exports.mineLicenseCSRF = function (query, csrf, next) {
     } else {
       try {
         var json = JSON.parse(body);
-        var htmlOutput = json.pop().data;
+        var htmlOutput = json.find((x) => x.command == 'insert').data;
         var licenses = parsers.parseLicenseList(htmlOutput);
       } catch (e) {
         next(e, body);

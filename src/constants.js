@@ -25,7 +25,6 @@ exports.licenseFields = {
   lastName: 'Nom',
   firstName: 'Prénom',
   gender: 'Sexe',
-  birthDate: 'Date naissance',
   association: 'Club',
   qualificationDate: 'Date qualif.',
   licenseType: 'Type lic.'
