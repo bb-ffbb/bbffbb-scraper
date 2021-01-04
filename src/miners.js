@@ -65,3 +65,23 @@ exports.mineLicense = function (query, next) {
     }
   });
 };
+
+/**
+   Asynchronously fetches associations, and passes the extracted data down to the
+   callback.
+*/
+exports.mineAssociation = function (query, next) {
+  req(urls.clubSearchService + "'" + query + "'", function (error, res, body) {
+    if (error) {
+      next(error);
+    } else if (res.statusCode !== 200) {
+      next(new Error('Wrong URL: ' + urls.clubSearchService + "'" + query + "'"), res);
+    } else {
+      try {
+        next(null, JSON.parse(body));
+      } catch(e) {
+        next(e);
+      }
+    }
+  });
+};
