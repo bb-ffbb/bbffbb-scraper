@@ -71,11 +71,11 @@ exports.mineLicense = function (query, next) {
    callback.
 */
 exports.mineAssociation = function (query, next) {
-  req(urls.clubSearchService + "'" + query + "'", function (error, res, body) {
+  req(urls.clubSearchService + query, function (error, res, body) {
     if (error) {
       next(error);
     } else if (res.statusCode !== 200) {
-      next(new Error('Wrong URL: ' + urls.clubSearchService + "'" + query + "'"), res);
+      next(new Error('Wrong URL: ' + urls.clubSearchService + query), res);
     } else {
       try {
         next(null, JSON.parse(body));

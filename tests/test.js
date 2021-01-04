@@ -6,8 +6,8 @@ var licenseFields = require('../').constants.licenseFields;
 var associationFields = require('../').constants.associationFields;
 
 miners.mineLicense({
-  firstName: 'Pierre',
-  lastName: 'Durand'
+  firstName: '*',
+  lastName: 'Martin'
 }, function (err, data) {
   assert(err === null, 'Got an error: ' + err);
   assert(data, 'Not enough Pierre Ps');
