@@ -22,4 +22,4 @@ miners.mineAssociation("ASVEL", function (err, data) {
   for (var f in associationFields) {
     assert(f in data[0], 'ASVEL missing field \'' + associationFields[f] + '\'');
   }
-})
+});
