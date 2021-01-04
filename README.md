@@ -14,12 +14,13 @@ const scrapper = require('bbffbb-scraper');
 
 
 const param = {
-    firstName: "Pierre", // player firstname
-    lastName: "Durand", // player lastname
-    licenseId: null, // player license 
-    gender: null, // player gender (M or F allowed). M is default value
-    nationalId: null, // player national id
-    birthDate: null, // player birth date (format DD/MM/YYYY)
+    firstName: "Pierre", // licensee firstname
+    lastName: "Durand", // licensee lastname
+    licenseId: null, // licensee license 
+    gender: null, // licensee gender (M or F allowed). M is default value
+    nationalId: null, // licensee national id
+    birthDate: null, // licensee birth date (format DD/MM/YYYY)
+    association: null, // licensee's association
 };
 
 scrapper.miners.mineLicense(param, (err, licensees) => {
