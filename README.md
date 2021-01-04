@@ -10,7 +10,7 @@ Scraper library for the <http://www.ffbb.com> site.
 ### Mine licensees
 
 ```
-const scrapper = require('bbffbb-scraper');
+const miners = require('bbffbb-scraper').miners;
 
 
 const param = {
@@ -23,7 +23,7 @@ const param = {
     association: null, // licensee's association
 };
 
-scrapper.miners.mineLicense(param, (err, licensees) => {
+miners.mineLicense(param, (err, licensees) => {
     if(err) {
         console.error(err);
     } else {
@@ -33,4 +33,22 @@ scrapper.miners.mineLicense(param, (err, licensees) => {
 ```
 
 `firstName`, `lastName`, `licenseId` could be set with `*` to search part of value. (example : `firstname: "Pi*"`, `lastName: "*Dur"`)
+
+### Mine associations
+
+```
+const miners = require('bbffbb-scraper').miners;
+
+let searchTerm = 'ASVEL' // part of association name (one word only, spaces not allowed)
+
+miners.mineAssociation(searchTerm, function (err, data) {
+    if(err) {
+        console.error(err);
+    } else {
+        console.log(licensees);
+    }
+});
+```
+
+
 

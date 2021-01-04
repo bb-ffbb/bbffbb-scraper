@@ -29,3 +29,20 @@ exports.licenseFields = {
   qualificationDate: 'Date qualif.',
   licenseType: 'Type lic.'
 };
+
+exports.associationFields = {
+  idOrg: 'Identifiant organisation',
+  idOrgPere: 'Identifiant organisation père',
+  cdOrg: 'Code organisation',
+  nomOrg: 'Nom organisation',
+  typeOrg: 'Type de l\'organisation',
+  adr: 'Adresse',
+  telephone: 'Téléphone',
+  telecopie: 'Fax',
+  mail: 'Email',
+  commune: 'Commune',
+  typeAssociation: "Type association",
+  salleOrg: "Salle principale de l'association",
+  urlWebSite: "Site internet",
+  membres: "Membres"
+}
