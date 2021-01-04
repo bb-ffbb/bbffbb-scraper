@@ -16,7 +16,7 @@ const scrapper = require('bbffbb-scraper');
 const param = {
     firstName: "Pierre", // licensee firstname
     lastName: "Durand", // licensee lastname
-    licenseId: null, // licensee license 
+    licenseId: null, // license 
     gender: null, // licensee gender (M or F allowed). M is default value
     nationalId: null, // licensee national id
     birthDate: null, // licensee birth date (format DD/MM/YYYY)
