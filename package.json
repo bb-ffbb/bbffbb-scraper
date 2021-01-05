@@ -1,6 +1,6 @@
 {
   "name": "bbffbb-scraper",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "ffbb.com scraper library",
   "main": "index.js",
   "scripts": {
