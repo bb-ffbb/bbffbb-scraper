@@ -1,6 +1,8 @@
 var assert = require('assert');
 var form = require('./constants').licenseSearchFormFields;
 
+var HTMLParser = require('node-html-parser');
+
 function input (name, val) {
   return '<input type="hidden" name="' + name + '" value="' + val + '" />';
 }
@@ -52,4 +54,28 @@ exports.parseLicenseList = function (blob) {
     throw new Error('Cannot parse licenses: ' + blob);
   }
   return items;
+};
+
+exports.parseClubComiteeList = function (blob) {
+  if(! HTMLParser.valid(blob)) return [];
+
+  let root = HTMLParser.parse(blob);
+
+  if(root.querySelector('.liste') == null) return [];
+
+  let rows = root.querySelector('.liste').childNodes.filter(node => ! node.rawAttrs.includes('tit'))
+    .map(node => node.childNodes);
+
+  let clubs = rows.map(row => {
+    return {
+      postalCode: row[0].childNodes[0].rawText,
+      clubNumber: row[1].childNodes[0].childNodes[0].rawText,
+      clubName: row[2].childNodes[0].childNodes[0].rawText,
+      urlId: /href=\"..\/(.*).html/g.exec(row[2].childNodes[0].rawAttrs)[1],
+      city: row[3].childNodes[0].rawText,
+      type: row[4].childNodes[0].rawText
+    };
+  });
+
+  return clubs;
 };
