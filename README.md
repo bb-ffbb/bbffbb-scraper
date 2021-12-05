@@ -3,7 +3,7 @@
 [![js-semistandard-style](https://img.shields.io/badge/code%20style-semistandard-brightgreen.svg?style=flat-square)](https://github.com/Flet/semistandard)
 [![travis-ci](https://travis-ci.org/bb-ffbb/bbffbb-scraper.svg)](https://travis-ci.org/bb-ffbb/bbffbb-scraper)
 
-Scraper library for the <http://www.ffbb.com> site.
+Scraper library for the <http://www.ffbb.com> and <https://resultats.ffbb.com> site.
 
 ## Usage
 
@@ -45,7 +45,23 @@ miners.mineAssociation(searchTerm, function (err, data) {
     if(err) {
         console.error(err);
     } else {
-        console.log(licensees);
+        console.log(associations);
+    }
+});
+```
+
+### Mine associations list from commitee code
+
+```
+const miners = require('bbffbb-scraper').miners;
+
+let searchTerm = '7eb' // url id code of AIN comitee
+
+miners.mineAssociationsFromCommiteeCode(searchTerm, function (err, data) {
+    if(err) {
+        console.error(err);
+    } else {
+        console.log(associations);
     }
 });
 ```

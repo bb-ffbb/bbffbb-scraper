@@ -2,7 +2,8 @@ exports.urls = {
   base: 'http://www.ffbb.com',
   licenseSearchForm: 'http://www.ffbb.com/jouer/recherche-avancee',
   licenseSearchService: 'http://www.ffbb.com/system/ajax',
-  clubSearchService: 'http://www.ffbb.com/ffbb-webservice/lookup-club?cd_lbclub='
+  clubSearchService: 'http://www.ffbb.com/ffbb-webservice/lookup-club?cd_lbclub=',
+  clubListFromCommiteeService: 'https://resultats.ffbb.com/organisation/listeorganismes/',
 };
 
 exports.licenseSearchFormFields = {
@@ -45,4 +46,13 @@ exports.associationFields = {
   salleOrg: "Salle principale de l'association",
   urlWebSite: "Site internet",
   membres: "Membres"
+}
+
+exports.associationFromCommiteeFields = {
+  postalCode: 'Code postal',
+  clubNumber: 'Code organisation',
+  clubName: 'Nom organisation',
+  urlId: 'Url id organisation',
+  city: 'Ville',
+  type: 'Type organisation'
 }

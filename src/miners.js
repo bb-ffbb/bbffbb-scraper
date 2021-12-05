@@ -67,7 +67,7 @@ exports.mineLicense = function (query, next) {
 };
 
 /**
-   Asynchronously fetches associations, and passes the extracted data down to the
+   Asynchronously fetches associations from name, and passes the extracted data down to the
    callback.
 */
 exports.mineAssociation = function (query, next) {
@@ -85,3 +85,23 @@ exports.mineAssociation = function (query, next) {
     }
   });
 };
+
+/**
+   Asynchronously fetches associations from commitee url code, and passes the extracted data down to the
+   callback.
+*/
+exports.mineAssociationsFromCommiteeCode = function (code, next) {
+  req(urls.clubListFromCommiteeService + code + '.html', function (error, res, body) {
+    if (error) {
+      next(error);
+    } else if (res.statusCode !== 200) {
+      next(new Error('Wrong URL: ' + urls.clubSearchService + query), res);
+    } else {
+      try {
+        next(null, parsers.parseClubComiteeList(body));
+      } catch(e) {
+        next(e);
+      }
+    }
+  });
+}
